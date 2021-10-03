@@ -37,4 +37,4 @@ while(i <= 10){
     i++;
 }
 
-console.log(fiboSeries);
+console.log(fiboSeries); 

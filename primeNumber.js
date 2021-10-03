@@ -1,17 +1,22 @@
 let number = 77
 
-// for( var i = 2; i < number; i++){
-//     console.log(i, number % i);
 
-//     if (number % i == 0){
-//       console.log("this is  Not a prime numner");
-//         break;
-//     }else{
-//         console.log("this is a prime numnber ");
+function isPrime(n){
+    for (var i = 2; i < n; i++) {
 
-//     }
-// }
+        if (n % i == 0) {
+          return "this is  Not a prime numner";
+        }
+
+         return "this is a prime numnber";
+
+    }
+
+}
+
+
+console.log(isPrime(77));
 
 
 
- 
+
