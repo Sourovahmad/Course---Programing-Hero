@@ -31,13 +31,8 @@
 //    const doubleit = (x, y) => x * 2;
 
     let htmlData = '';
-    array.map(function(el){
-
-     htmlData += '<td>' + el + '</td>';
-
-    });
-
-      document.getElementById('itemForTable').innerHTML = htmlData;
+    array.map(el => htmlData += '<td>' + el + '</td>');
+    document.getElementById('itemForTable').innerHTML = htmlData;
 
 
 
