@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="style.css">
     <title>Hello countries</title>
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">All country List</a>
+        <a class="navbar-brand" href="#"> Country With Api </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,17 +51,23 @@
         </div>
     </div>
 </nav>
-    <div class="container">
-        <div class="card" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+<div class="container">
+
+    <div class="row">
+
+        <div class="cards-list" id="allCardSection">
+
+
+
+
         </div>
+
     </div>
+
+
+
+
+</div>
 
 
 
@@ -71,9 +78,49 @@
 
 
 <script>
-    console.log("hello world");
+
+    fetch("https://restcountries.com/v3.1/all")
+        .then(response => response.json())
+        .then(data => dataReciver(data))
+        .catch(error => console.log(error));
+
+    const dataReciver = (data) => {
+
+        let cardData = '';
+
+        for (let i = 0; i < 5; i++) {
+
+            const country = data[i];
+            console.log(country);
+
+
+            cardData += '<div class=" card 1 singleCard" onclick="contryFinder(' + "'" + country.name.common + "'" +')">';
+            cardData += '<div class="card_image">' + '<img src="' + country.flags.png + '" /> </div>';
+            cardData += ' <div class="card_title title-white">';
+            cardData += '<p>' + country.name.common + '</p>';
+            cardData += '</div>';
+            cardData += '</div>';
+
+        }
+
+        document.getElementById('allCardSection').innerHTML = cardData;
+
+    }
+
+
+
+
+    function contryFinder(country_name) {
+        alert(country_name);
+    }
+
+
+
+
 </script>
+
 <body>
 
 </body>
+
 </html>
