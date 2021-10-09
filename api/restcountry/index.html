@@ -93,12 +93,23 @@
             const country = data[i];
 
 
-            cardData += '<div class=" card 1 singleCard" onclick="contryFinder(' + "'" + country.name.common + "'" +')">';
-            cardData += '<div class="card_image">' + '<img src="' + country.flags.png + '" /> </div>';
-            cardData += ' <div class="card_title title-white">';
-            cardData += '<p>' + country.name.common + '</p>';
-            cardData += '</div>';
-            cardData += '</div>';
+            // cardData += '<div class=" card 1 singleCard" onclick="contryFinder(' + "'" + country.name.common + "'" +')">';
+            // cardData += '<div class="card_image">' + '<img src="' + country.flags.png + '" /> </div>';
+            // cardData += ' <div class="card_title title-white">';
+            // cardData += '<p>' + country.name.common + '</p>';
+            // cardData += '</div>';
+            // cardData += '</div>';
+
+            cardData += `
+
+            <div class=" card 1 singleCard" onclick="contryFinder('${country.name.common}')">
+            <div class="card_image"> <img src=" ${country.flags.png}" /> </div>
+            <div class="card_title title-white">
+            <p> ${country.name.common} </p>
+            </div>
+            </div>
+
+            `;
 
         }
 
