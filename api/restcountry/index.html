@@ -91,7 +91,6 @@
         for (let i = 0; i < 5; i++) {
 
             const country = data[i];
-            console.log(country);
 
 
             cardData += '<div class=" card 1 singleCard" onclick="contryFinder(' + "'" + country.name.common + "'" +')">';
@@ -111,7 +110,14 @@
 
 
     function contryFinder(country_name) {
-        alert(country_name);
+
+    fetch("https://restcountries.com/v3.1/name/" + country_name)
+    .then(response => response.json())
+    .then(data => console.log(data[0].name.common))
+    .catch(error => console.log(error));
+
+
+
     }
 
 
